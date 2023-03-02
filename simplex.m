@@ -24,40 +24,6 @@ simplex_table.Properties.VariableNames(1:size(zjcj,2))={'x1','x2','s1','s2','sol
 run = true;
 disp(simplex_table)
 
-% zc=zrow(1:end-1);
-% [val,e_col]=min(zc);
-% sol=A(:,end);
-% col=A(:,e_col);
-% if any(col<0)
-%     disp('Infeasible solution');
-% %     break;
-% else
-%     for i=1:size(col,1)
-%         ratio(i)=sol(i)./col(i);
-%     end
-%     [val,position]=min(ratio);
-%     BV(:,position)=e_col;
-%     pivot=A(position,e_col);
-%     A(position,:)=A(position,:)./pivot;
-%     
-% 
-% 
-%     for i=1:size(A,1)
-%         if i~=position
-%             m=A(i,e_col);
-%             
-%             A(i,:)=(A(i,:)-A(position,:)*m);
-%         end
-%     end
-%     zrow=cost(BV)*A-cost;
-%     zjcj=[A;zrow];
-%     simplex_table=array2table(zjcj);
-%     simplex_table.Properties.VariableNames(1:size(zjcj,2))={'x1','x2','s1','s2','solution'};
-%     disp(simplex_table)    
-% 
-% end
-% 
-
 while(run)
     if (any(zrow<0))
         disp("BFS is not optimal, Iteration continues!")
